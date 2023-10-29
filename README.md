@@ -29,13 +29,12 @@ A finalidade do repositório é testar o uso do jenkins com pytest
 ## 🚀 Features <a name="features"></a>
 - Realizar Pipeline de CI com o Jenkins 
 
-<!-- Adicionar link da imagem
 <p align="center">
   <a href="" rel="noopener">
     <img src="https://github.com/wlcamargo/jenkins/blob/main/images/log_jenkins.png" alt="Log">
   </a>
 </p>
--->
+
 
 ## ⚠️ Warnings <a name="warnings"></a>
 - Se o repositório for privado precisará das credenciais no Jenkins
