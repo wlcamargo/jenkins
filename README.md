@@ -1,4 +1,4 @@
-<h3 align="center">Pipeline de CI with Jenkins</h3>
+<h3 align="center">Pipeline CI with Jenkins</h3>
 
 
 <div align="center">
