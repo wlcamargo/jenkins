@@ -9,3 +9,6 @@ def test_multiply():
 
 def test_divide():
     assert divide(10, 5) == 2
+
+def test_substract():
+    assert divide(10, 5) == 5
