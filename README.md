@@ -73,7 +73,7 @@ Sample pipeline executed:
 ![image](assets/pipeline-executed.png)
 
 Sample test:
-![image](assets/test-result.png)
+![image](assets/test-realized.png)
 
 
 ## Conclusão
