@@ -55,13 +55,22 @@ A pipeline vai instalar as dependências, tais como: ```Python```, Ambiente Virt
 ### Steps
 
 1 - Clique em ```new item``` no canto superior esquerdo.
+sample:
+![image](assets/new_item.png)    
 
 2- Dê um nome para a pipeline, clique em ```pipeline``` e depois avance.
+![image](assets/pipeline-jenkins.png)    
 
 3 - Copie a pipeline da pasta ```pipeline``` para o Jenkins e  faça o build. 
+![image](assets/build-pipeline.png) 
 
-Sample pipeline:
-![image](assets/pipeline-jenkins.png)
+4 - Execute a pipeline clicando em ```Build Now```
+![image](assets/run-pipeline.png) 
+
+### Exemplos:
+
+Sample pipeline executed:
+![image](assets/pipeline-executed.png)
 
 Sample test:
 ![image](assets/test-result.png)
