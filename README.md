@@ -59,9 +59,9 @@ sample:
 ![image](assets/new_item.png)    
 
 2- Dê um nome para a pipeline, clique em ```pipeline``` e depois avance.
-![image](assets/pipeline-jenkins.png)    
+![image](assets/create-pipeline.png)    
 
-3 - Copie a pipeline da pasta ```pipeline``` para o Jenkins e  faça o build. 
+3 - Copie a pipeline da pasta ```pipeline``` para o Jenkins e  faça o salve. 
 ![image](assets/build-pipeline.png) 
 
 4 - Execute a pipeline clicando em ```Build Now```
