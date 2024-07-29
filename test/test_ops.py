@@ -7,6 +7,9 @@ def test_add():
 def test_multiply():
     assert multiply(2, 3) == 6
 
+def test_multiply2():
+    assert multiply(2, 3) == 6
+
 def test_divide():
     assert divide(10, 5) == 2
 
