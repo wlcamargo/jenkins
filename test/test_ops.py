@@ -7,18 +7,12 @@ def test_add():
 def test_multiply():
     assert multiply(2, 3) == 6
 
-def test_multiply2():
-    assert multiply(2, 3) == 6
-
 def test_divide():
     assert divide(10, 5) == 2
 
 def test_substract():
     assert substract(10, 5) == 5
 
-def test_substract():
-    assert substract(10, 5) == 5
-
-def test_multiply_wrong():
-    assert multiply(2, 3) == 7
+#def test_multiply_wrong():
+#    assert multiply(2, 3) == 7
 
