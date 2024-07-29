@@ -27,10 +27,12 @@ Como instalar o Docker:
 
 https://www.youtube.com/playlist?list=PLbPvnlmz6e_L_3Zw_fGtMcMY0eAOZnN-H
 
+## Video Tutorial
+
+https://www.youtube.com/watch?v=SGnqbHoiCDY
 
 ### Repo no GitHub ou crie o seu
 Pode utilizar o mesmo deste exemplo, pois ele é público.
-
 
 ## Como instalar o Jenkins?
 Na pasta raiz do projeto execute o comando:
