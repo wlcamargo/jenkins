@@ -13,6 +13,6 @@ def test_divide():
 def test_substract():
     assert substract(10, 5) == 5
 
-def test_multiply_wrong():
-    assert multiply(2, 3) == 7
+#def test_multiply_wrong():
+#    assert multiply(2, 3) == 7
 
