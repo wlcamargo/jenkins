@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+        REPO_URL = 'https://github.com/wlcamargo/jenkins.git'
+        BRANCH_DEV = 'dev'
+        BRANCH_MAIN = 'main'
+        PR_TITLE = 'Automated Pull Request from dev to main'
+        PR_BODY = 'This pull request was automatically created by Jenkins.'
+    }
+
     stages {
         stage('Install and Setup') {
             steps {
@@ -10,9 +18,9 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
+        stage('Checkout Dev') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/wlcamargo/jenkins.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: "${BRANCH_DEV}"]], userRemoteConfigs: [[url: "${REPO_URL}"]]])
             }
         }
 
@@ -25,6 +33,31 @@ pipeline {
         stage('Test') {
             steps {
                 sh '. venv/bin/activate && python3 -m pytest'
+            }
+        }
+
+        stage('Create Pull Request') {
+            when {
+                expression { currentBuild.currentResult == 'SUCCESS' }
+            }
+            steps {
+                script {
+                    withCredentials([
+                        string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN'),
+                        string(credentialsId: 'REPO_OWNER', variable: 'REPO_OWNER'),
+                        string(credentialsId: 'REPO_NAME', variable: 'REPO_NAME')
+                    ]) {
+                        def response = sh(script: """
+                            curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+                            -H "Accept: application/vnd.github.v3+json" \
+                            -H "Content-Type: application/json" \
+                            -d '{ "title": "${PR_TITLE}", "body": "${PR_BODY}", "head": "${BRANCH_DEV}", "base": "${BRANCH_MAIN}" }' \
+                            https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls
+                        """, returnStdout: true).trim()
+
+                        echo "Pull Request Response: ${response}"
+                    }
+                }
             }
         }
     }
