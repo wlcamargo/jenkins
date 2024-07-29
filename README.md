@@ -75,6 +75,8 @@ Sample pipeline executed:
 Sample test:
 ![image](assets/test-realized.png)
 
+### Onde Agenda a tarefa?
+![image](assets/scheduler.png)
 
 ## Conclusão
 Parabéns! Sua pipeline com o Jenkins já está pronta!
