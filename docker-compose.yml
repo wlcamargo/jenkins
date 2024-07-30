@@ -1,6 +1,6 @@
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: wlcamargo/jenkins
     privileged: true
     user: root
     ports:
