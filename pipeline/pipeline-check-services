@@ -12,11 +12,12 @@ pipeline {
     stages {
         stage('Install and Setup') {
             steps {
-                sh 'apt-get update && apt-get install -y python3 python3-venv'
-                sh 'apt-get update && apt-get install -y python3 selenium'
-                sh 'apt-get update && apt-get install -y python3 webdriver-manager'
-                sh 'python3 -m venv venv'
-                sh '. venv/bin/activate && pip install --upgrade pip pytest'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install pytest selenium webdriver-manager
+                '''
             }
         }
 
@@ -28,13 +29,30 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh '. venv/bin/activate && python3 test/test_online_services.py'
+                sh '''
+                    . venv/bin/activate
+                    python3 test/test_online_services.py
+                '''
             }
         }
 
-        stage('Test') {+
+        stage('Test') {
             steps {
-                sh '. venv/bin/activate && python3 -m pytest'
+                sh '''
+                    # Verificar se o ambiente virtual está ativado
+                    if [ -f venv/bin/activate ]; then
+                        . venv/bin/activate
+                    fi
+
+                    # Listar pacotes instalados para depuração
+                    pip list
+
+                    # Verificar arquivos e diretórios importantes
+                    ls -l
+
+                    # Executar pytest com mais detalhes
+                    pytest --maxfail=1 --disable-warnings --tb=short
+                '''
             }
         }
 
@@ -66,7 +84,13 @@ pipeline {
 
     post {
         always {
-            sh 'deactivate || true'
+            sh '''
+                # Tentar desativar o ambiente virtual se estiver ativado
+                if [ -f venv/bin/activate ]; then
+                    . venv/bin/activate
+                    deactivate || true
+                fi
+            '''
         }
     }
 }
