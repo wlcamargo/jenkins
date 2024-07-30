@@ -1,4 +1,4 @@
 services = {
-    'minio': ('http://localhost:9001', 'MinIO Console'),
-    'superset': ('http://localhost:8088', 'Superset')
+    'minio': ('http://172.21.121.140:9001', 'MinIO Console'),
+    'superset': ('http://172.21.121.140:8088', 'Superset')
 }

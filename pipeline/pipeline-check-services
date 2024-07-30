@@ -13,6 +13,8 @@ pipeline {
         stage('Install and Setup') {
             steps {
                 sh 'apt-get update && apt-get install -y python3 python3-venv'
+                sh 'apt-get update && apt-get install -y python3 selenium'
+                sh 'apt-get update && apt-get install -y python3 webdriver-manager'
                 sh 'python3 -m venv venv'
                 sh '. venv/bin/activate && pip install --upgrade pip pytest'
             }
