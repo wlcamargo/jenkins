@@ -1,6 +1,8 @@
 services:
   jenkins:
-    image: wlcamargo/jenkins
+    build:
+      context: .
+      dockerfile: Dockerfile
     privileged: true
     user: root
     ports:

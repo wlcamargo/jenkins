@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/wlcamargo/jenkins.git'
+        REPO_URL = 'https://github.com/wendellast/jenkins.git'
         BRANCH_DEV = 'dev'
         BRANCH_MAIN = 'main'
         PR_TITLE = 'Automated Pull Request from dev to main'

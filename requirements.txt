@@ -1,4 +1,2 @@
 pytest
-selenium
-webdriver-manager
-psycopg2-binary
+
